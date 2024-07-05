@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Donut</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- bootstrap links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <!-- fonts links -->
+</head>
+
+<body>
+    <div class="all-content">
+
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg" id="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" id="logo"><img src="./images/logo pertama.jpeg" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fa-solid fa-bars" style="color: ivory; font-size: 23px;"></i></span>
+      </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Menu">MENU</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#product">Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gallary">Our Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#blogs">Blogs</a>
+                        </li>
+                    </ul>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" id="loginNav" href="#loginModal" data-bs-toggle="modal">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="logoutNav" href="#" style="display: none;">Logout</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cart.html">
+                                  Cart
+                                  <span id="cartCount" class="badge bg-primary"></span>
+                              </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <!-- navbar -->
+        <!-- Login Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="loginEmail" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="loginEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="loginPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="loginPassword" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- home section -->
+        <section id="home">
+            <div class="content">
+                <h3> Sweet like your day<br> If You</h3>
+                <p>Order a sweet donut
+                    <br> make your mood better.
+                </p>
+                <button id="btn">Shop Now</button>
+            </div>
+        </section>
+
+        <!-- home section -->
+
+
+
+        <!-- about section -->
+        <div class="about" id="about">
+            <div class="container">
+                <div class="heading">About <span>Us</span></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <img src="./images/utama.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>What Makes Our donut Special?</h3>
+                        </p> Donat yang terbuat dari bahan bahan premium dan di padukan dengan kentang pilihan menghasilkan tekstur yang lembut Kelezatan donat klasik yang dipadukan dengan rasa gurih kentang, menciptakan sensasi baru.
+                        <br><br>Dengan inovasi terbaru berbagai varian rasa yang setiap rasanya memberikan cita rasa yang premium Pilihan topping yang beragam, dari taburan klasik hingga kreasi unik yang memanjakan lidah Perpaduan rasa yang luar biasa,
+                        dari cokelat yang kaya hingga vanilla yang lembut, selalu menggoda selera..
+                        <br><br>Camilan ideal untuk menemani waktu bersantai bersama keluarga dan teman, Promo Spesial! Dapatkan diskon 10% untuk setiap pembelian pertama Anda. Jangan lewatkan kesempatan untuk mencoba kelezatan yang tak tertandingi ini!
+                        Kunjungi toko kami atau pesan online sekarang juga.
+                        </p>
+                        <button id="about-btn">Learn More.</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- about section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- catalogue -->
+        <section class="Menu" id="Menu">
+            <div class="container">
+                <div class="heading3">MENU</div>
+                <div class="container" id="item1">
+                    <div class="row">
+                        <div class="col-md-3 py-3 py-md-0">
+                            <div class="card">
+                                <img src="./images/donat1.jpg" alt=" ">
+                                <div class="card-body">
+                                    <div class="star text-center">
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <h3>SWEET CERES</h3>
+                                    <p>Rp.15.000 <strike>Rp.20.000</strike> <span><i class="fa-solid fa-cart-shopping" onclick="addToCart('item1')"></i></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 py-3 py-md-0">
+                            <div class="card">
+                                <img src="./images/donat2.jpg" alt=" ">
+                                <div class="card-body">
+                                    <div class="star text-center">
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <h3>CHRUNCY CHOCO</h3>
+                                    <p>Rp.20.000 <strike>Rp.25.000</strike> <span><i class="fa-solid fa-cart-shopping" onclick="addToCart('item2')"></i></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 py-3 py-md-0">
+                            <div class="card">
+                                <img src="./images/donat3.jpg" alt=" ">
+                                <div class="card-body">
+                                    <div class="star text-center">
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <h3>CHOCO PEANUT</h3>
+                                    <p>Rp.20.000 <strike>Rp.25.000</strike> <span><i class="fa-solid fa-cart-shopping" onclick="addToCart('item3')"></i></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 py-3 py-md-0">
+                            <div class="card">
+                                <img src="./images/donat5.jpg" alt=" ">
+                                <div class="card-body">
+                                    <div class="star text-center">
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <h3>VANILLA ALMOND</h3>
+                                    <p>Rp.25.000 <strike>Rp.27.000</strike> <span><i class="fa-solid fa-cart-shopping" onclick="addToCart('item4')"></i></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 50px;">
+                        <div class="col-md-3 py-3 py-md-0">
+                            <div class="card">
+                                <img src="./images/donat6.jpg" alt=" ">
+                                <div class="card-body">
+                                    <div class="star text-center">
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <h3>CRUNCHY OREO</h3>
+                                    <p>Rp.25.000 <strike>Rp.30.000</strike> <span><i class="fa-solid fa-cart-shopping" onclick="addToCart('item5')"></i></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 py-3 py-md-0">
+                            <div class="card">
+                                <img src="./images/donat7.jpg" alt=" ">
+                                <div class="card-body">
+                                    <div class="star text-center">
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <h3>ORIGINAL SUGAR</h3>
+                                    <p>Rp.20.000 <strike>Rp.25.000</strike> <span><i class="fa-solid fa-cart-shopping" onclick="addToCart('item6')"></i></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 py-3 py-md-0">
+                            <div class="card">
+                                <img src="./images/VANILA.jpg" alt=" ">
+                                <div class="card-body">
+                                    <div class="star text-center">
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <h3>VANILLA</h3>
+                                    <p>Rp.15.000 <strike>Rp.20.000</strike> <span><i class="fa-solid fa-cart-shopping" onclick="addToCart('item7')"></i></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 py-3 py-md-0">
+                            <div class="card">
+                                <img src="./images/donat8.jpg" alt=" ">
+                                <div class="card-body">
+                                    <div class="star text-center">
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <h3>PINKY LADY</h3>
+                                    <p>Rp.15.000 <strike>Rp.20.000</strike> <span><i class="fa-solid fa-cart-shopping" onclick="addToCart('item8')"></i></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- MENU -->
+
+
+
+
+
+
+
+
+        <!-- product -->
+        <section id="product" class="product">
+            <div class="container">
+                <div class="heading4">Products</div>
+            </div>
+            <div class="container" id="container3">
+                <div class="row">
+                    <div class="col-md-3 py-3 py-md-0">
+                        <div class="card">
+                            <img src="./images/KEMASAN1.jpg" alt=" ">
+                            <div class="card-body">
+                                <h3>GIFT</h3>
+                                <p>Rp.120.000 <strike>Rp.150.000</strike> <span><i class="fa-solid fa-cart-shopping" onclick="addToCart('item9')"></i></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 py-3 py-md-0">
+                        <div class="card">
+                            <img src="./images/KEMASAN2.jpg" alt=" ">
+                            <div class="card-body">
+                                <h3>PICK UP</h3>
+                                <p>Rp.150.000 <strike>Rp.200.000</strike> <span><i class="fa-solid fa-cart-shopping" onclick="addToCart('item10')"></i></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 py-3 py-md-0">
+                        <div class="card">
+                            <img src="./images/KEMASAN3.jpg" alt=" ">
+                            <div class="card-body">
+                                <h3>SINGLE</h3>
+                                <p>Rp.100.000 <strike>Rp.130.000</strike> <span><i class="fa-solid fa-cart-shopping" onclick="addToCart('item11')"></i></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 py-3 py-md-0">
+                        <div class="card">
+                            <img src="./images/KEMASAN4.jpg" alt=" ">
+                            <div class="card-body">
+                                <h3>SHAREING</h3>
+                                <p>Rp.250.000 <strike>Rp.270.000</strike> <span><i class="fa-solid fa-cart-shopping" onclick="addToCart('item12')"></i></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- product -->
+
+
+
+
+        <!-- our gallary -->
+        <div class="container " id="gallary ">
+            <h1>Our <span>Gallary</span></h1>
+            <div class="row " style="margin-top: 30px; ">
+                <div class="col-md-4 py-3 py-md-0 ">
+                    <div class="card ">
+                        <img src="./images/home donat.jpg " alt=" ">
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0 ">
+                    <div class="card ">
+                        <img src="./images/home.jpg " alt=" ">
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0 ">
+                    <div class="card ">
+                        <img src="./images/galerry1 (1).jpg " alt=" ">
+                    </div>
+                </div>
+            </div>
+            <div class="row " style="margin-top: 30px; ">
+                <div class="col-md-4 py-3 py-md-0 ">
+                    <div class="card ">
+                        <img src="./images/galerry1 (2).jpg " alt=" ">
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0 ">
+                    <div class="card ">
+                        <img src="./images/galeri2.jpg " alt=" ">
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0 ">
+                    <div class="card ">
+                        <img src="./images/g5.jpg " alt=" ">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- our gallary -->
+
+
+
+
+        <!-- contact -->
+        <section class="contact " id="contact ">
+
+
+
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-md-7 ">
+                        <div class="heading6 ">Contact <span>Us</span></div>
+
+                        <p> more information about what kind of advertising order you are looking for. Here
+                            <br>Are you interested in placing an order for online advertising.
+                        </p>
+
+                        <input class="form-control " type="text " placeholder="Name " aria-label="default input example "><br>
+                        <input class="form-control " type="email " placeholder="Email " aria-label="default input example "><br>
+                        <input class="form-control " type="number " placeholder="Number " aria-label="default input example "><br>
+                        <button id="contact-btn ">Send Message</button>
+                    </div>
+                    <div class="col-md-5 " id="col ">
+                        <h1>Info</h1>
+                        <p><i class="fa-regular fa-envelope "></i> Sweet Donut@gmail.com</p>
+                        <p><i class="fa-solid fa-phone "></i> +62665478990</p>
+                        <p><i class="fa-solid fa-building-columns "></i> Jl kemang pratama raya </p>
+                        <p>Sweet Donut</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- contact -->
+
+
+        <!-- blogs -->
+        <section class="blogs " id="blogs ">
+            <h1>Latest <span>Blogs</span></h1>
+
+            <div class="container ">
+
+                <div class="row ">
+
+                    <div class="col-md-4 py-3 py-md-0 ">
+                        <div class="card ">
+                            <img src="./images/g1.jpg " alt=" ">
+                            <div class="card-body ">
+                                <h3>Sporty Chic</h3>
+                                <h5>Author / 9 nov 2023</h5>
+                                <p>Experience the ultimate in comfort and performance with our sport chic. This sport wear is designed to move with you, no matter what your workout throws your way. Made from Whether you're running, lifting, or hitting a
+                                    yoga class, this [product] will keep you feeling cool, dry, and supported</p>
+                                <button id="blogbtn ">Read More.</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 py-3 py-md-0 ">
+                        <div class="card ">
+                            <img src="./images/g2.jpg " alt=" ">
+                            <div class="card-body ">
+                                <h3>Sporty Chic</h3>
+                                <h5>Author / 6 nov 2023</h5>
+                                <p>Look and feel your best in our [product name]. This [product type] is perfect for [activity]. Made from [material], the [product name] is [feature 1], [feature 2], and [feature 3]. With its [stylish feature], the is sure
+                                    to help you reach your fitness goals.</p>
+                                <button id="blogbtn ">Read More.</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 py-3 py-md-0 ">
+                        <div class="card ">
+                            <img src="./images/g3.jpg " alt=" ">
+                            <div class="card-body ">
+                                <h3>Sporty Chic</h3>
+                                <h5>Author/ 11 nov 2023</h5>
+                                <p>Experience the ultimate in comfort and performance with This is designed to move with you, no matter what your workout throws your way. Made from , the Whether you're running, lifting, or hitting a yoga class, this will
+                                    keep you feeling cool, dry, and supported..</p>
+                                <button id="blogbtn ">Read More.</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+        <!-- blogs -->
+
+
+
+
+
+
+
+        <!-- footer -->
+        <footer id="footer ">
+            <div class="footer-logo text-center "><img src="./images/logo pertama.jpeg " alt=" "></div>
+            <div class="socail-links text-center ">
+                <i class="fa-brands fa-twitter "></i>
+                <i class="fa-brands fa-facebook-f "></i>
+                <i class="fa-brands fa-instagram "></i>
+                <i class="fa-brands fa-youtube "></i>
+                <i class="fa-brands fa-pinterest-p "></i>
+            </div>
+            <div class="credite text-center ">
+                Designed By <a href="# "> AUTHOR ADELIA</a>
+            </div>
+
+            <div class="credite text-center ">
+                copyright<a href="# "> Sweet donut</a>
+            </div>
+
+        </footer>
+        <!-- footer -->
+
+        <a href="# " class="arrow "><i><img src="./images/up-arrow.png " alt=" " width="50px "></i></a>
+
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
+        <script>
+            // Temporary database for users
+            const users = [{
+                email: 'Admin@gmail.com',
+                password: '123'
+            }, {
+                email: 'Admin2@gmail.com',
+                password: '123'
+            }];
+
+            // Temporary database for cart items
+            let cart = [];
+
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+                const user = users.find(user => user.email === email && user.password === password);
+                if (user) {
+                    Swal.fire({
+                        title: "Selamat",
+                        text: "Kamu berhasil log in",
+                        icon: "success"
+                    }).then(() => {
+                        document.getElementById('loginNav').style.display = 'none';
+                        document.getElementById('logoutNav').style.display = 'block';
+                        $('#loginModal').modal('hide');
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Sandi Anda salah"
+
+                    });
+                }
+            });
+
+            document.getElementById('logoutNav').addEventListener('click', function() {
+                Swal.fire({
+                    title: "Bagus",
+                    text: "Sampai berjumpa lagi:)",
+                    icon: "success"
+                }).then(() => {
+                    document.getElementById('loginNav').style.display = 'block';
+                    document.getElementById('logoutNav').style.display = 'none';
+                });
+            });
+        </script>
+        <script>
+            // Temporary database for cart items
+            const items = {
+                item1: {
+                    id: 'item1',
+                    name: 'SWEET CERES',
+                    description: 'Delicious chocolate covered donut.',
+                    price: 15000,
+                    image: './images/donat1.jpg'
+                },
+                item2: {
+                    id: 'item2',
+                    name: 'CHRUNCY CHOCO',
+                    description: 'Delicious chocolate cruncy covered donut.',
+                    price: 20000,
+                    image: './images/donat2.jpg'
+                },
+                item3: {
+                    id: 'item3',
+                    name: 'CHOCO PEANUT',
+                    description: 'Delicious chocolate covered donut.',
+                    price: 20000,
+                    image: './images/donat3.jpg'
+                },
+                item4: {
+                    id: 'item4',
+                    name: 'VANILLA ALMOND',
+                    description: 'Delicious vanilla almond donut.',
+                    price: 25000,
+                    image: './images/donat5.jpg'
+                },
+                item5: {
+                    id: 'item5',
+                    name: 'CRUNCHY OREO',
+                    description: 'Delicious crunchy oreo donut.',
+                    price: 25000,
+                    image: './images/donat6.jpg'
+                },
+                item6: {
+                    id: 'item6',
+                    name: 'ORIGINAL SUGAR',
+                    description: 'Delicious original sugar donut.',
+                    price: 20000,
+                    image: './images/donat7.jpg'
+                },
+                item7: {
+                    id: 'item7',
+                    name: 'VANILLA',
+                    description: 'Delicious vanilla donut.',
+                    price: 15000,
+                    image: './images/VANILA.jpg'
+                },
+                item8: {
+                    id: 'item8',
+                    name: 'PINKY LADY',
+                    description: 'Delicious pinky lady donut.',
+                    price: 15000,
+                    image: './images/donat8.jpg'
+                },
+                item9: {
+                    id: 'item9',
+                    name: 'GIFT',
+                    description: 'Perfect gift packaging for donuts.',
+                    price: 150000,
+                    image: './images/KEMASAN1.jpg'
+                },
+                item10: {
+                    id: 'item10',
+                    name: 'PICK UP',
+                    description: 'Convenient pick-up packaging.',
+                    price: 130000,
+                    image: './images/KEMASAN2.jpg'
+                },
+                item11: {
+                    id: 'item11',
+                    name: 'SINGLE',
+                    description: 'Single serving packaging.',
+                    price: 100000,
+                    image: './images/KEMASAN3.jpg'
+                },
+                item12: {
+                    id: 'item12',
+                    name: 'SHAREING',
+                    description: 'Packaging for sharing.',
+                    price: 250000,
+                    image: './images/KEMASAN4.jpg'
+                }
+            };
+
+            document.addEventListener('DOMContentLoaded', function() {
+                updateCartCount();
+                loadCartItems();
+            });
+
+
+            function loadCartItems() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const cartItems = document.getElementById('cartItems');
+                cartItems.innerHTML = '';
+
+                cart.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.classList.add('list-group-item');
+                    li.innerHTML = `
+                      <div class="d-flex align-items-center">
+                          <img src="${item.image}" alt="${item.name}" class="img-thumbnail" style="width: 100px; height: auto; margin-right: 10px;">
+                          <div>
+                              <h5>${item.name}</h5>
+                              <p>${item.description}</p>
+                              <p>Price: Rp ${item.price.toLocaleString('id-ID')}</p>
+                              <div class="input-group">
+                                  <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity(${index}, -1)">-</button>
+                                  <input type="text" class="form-control text-center" value="${item.quantity}" readonly>
+                                  <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity(${index}, 1)">+</button>
+                              </div>
+                          </div>
+                      </div>
+                  `;
+                    cartItems.appendChild(li);
+                });
+
+                updateTotalPrice();
+            }
+
+
+            function updateTotalPrice() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+                document.getElementById('totalPrice').textContent = totalPrice.toLocaleString('id-ID');
+            }
+
+
+            function updateQuantity(index, change) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart[index].quantity += change;
+                if (cart[index].quantity < 1) {
+                    cart[index].quantity = 1;
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCartItems();
+                updateTotalPrice();
+                updateCartCount();
+            }
+
+
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const cartCount = cart.reduce((count, item) => count + item.quantity, 0);
+                document.getElementById('cartCount').textContent = cartCount;
+            }
+
+
+            function addToCart(itemId) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const item = items[itemId];
+
+                const existingItem = cart.find(cartItem => cartItem.id === itemId);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    item.quantity = 1;
+                    cart.push(item);
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                Swal.fire('Berhasil menambahkan kekeranjang');
+            }
+        </script>
+
+
+</body>
+
+</html>

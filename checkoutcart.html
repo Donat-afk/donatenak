@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .item {
+            display: flex;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .item img {
+            width: 80px;
+            height: auto;
+            margin-right: 10px;
+        }
+        
+        .item-info {
+            flex: 1;
+        }
+        
+        .item-info h4 {
+            margin: 0;
+        }
+        
+        .item-info p {
+            margin: 5px 0;
+        }
+        
+        .total {
+            text-align: right;
+            margin-top: 20px;
+        }
+        
+        .total p {
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .form-group select {
+            appearance: auto;
+            -webkit-appearance: menulist;
+            -moz-appearance: menulist;
+        }
+        
+        .print-btn {
+            background-color: #008CBA;
+        }
+        
+        .print-btn:hover {
+            background-color: #005580;
+        }
+    </style>
+    <!-- SweetAlert library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Checkout</h2>
+
+        <div id="checkoutItems">
+            <!-- Checkout items will be dynamically added here -->
+        </div>
+
+        <div class="total">
+            <p>Total: <span id="totalAmount">Rp 0</span></p>
+        </div>
+
+        <form id="checkoutForm">
+            <div class="form-group">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Alamat:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="phone">Nomor Telepon:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10,12}" required>
+            </div>
+            <div class="form-group">
+                <label for="paymentMethod">Metode Pembayaran:</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="">Pilih metode pembayaran...</option>
+                    <option value="BCA">BCA</option>
+                    <option value="BRI">BRI</option>
+                    <option value="Mandiri">Mandiri</option>
+                    <option value="OVO">OVO</option>
+                    <option value="GoPay">GoPay</option>
+                    <option value="DANA">DANA</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Bayar</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to render items in checkout
+        function renderCheckoutItems() {
+            const checkoutItems = document.getElementById('checkoutItems');
+            checkoutItems.innerHTML = '';
+
+            // Iterate through items in cart and display them
+            for (const item of Object.values(itemsInCart)) {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('item');
+
+                // Item image
+                const img = document.createElement('img');
+                img.src = item.image;
+                img.alt = item.name;
+                itemDiv.appendChild(img);
+
+                // Item details
+                const itemInfoDiv = document.createElement('div');
+                itemInfoDiv.classList.add('item-info');
+
+                const itemName = document.createElement('h4');
+                itemName.textContent = item.name;
+                itemInfoDiv.appendChild(itemName);
+
+                const itemPrice = document.createElement('p');
+                itemPrice.textContent = `Price: Rp ${formatCurrency(item.price)}`;
+                itemInfoDiv.appendChild(itemPrice);
+
+                itemDiv.appendChild(itemInfoDiv);
+
+                checkoutItems.appendChild(itemDiv);
+            }
+
+            // Calculate total amount
+            const totalAmount = Object.values(itemsInCart).reduce((total, item) => total + item.price, 0);
+            document.getElementById('totalAmount').textContent = `Rp ${formatCurrency(totalAmount)}`;
+        }
+
+        // Function to format currency
+        function formatCurrency(amount) {
+            return amount.toLocaleString('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            }).replace(",00", ",-");
+        }
+
+        // Function to reset cart
+        function resetCart() {
+            itemsInCart = {}; // Clear items in cart object
+            localStorage.removeItem('cart'); // Clear local storage
+            renderCheckoutItems(); // Render updated checkout items
+        }
+
+        // Handle form submission
+        const checkoutForm = document.getElementById('checkoutForm');
+        checkoutForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Gather form data
+            const formData = new FormData(checkoutForm);
+            const paymentMethod = formData.get('paymentMethod');
+
+            // Example: Send formData to server or process further
+            console.log('Form Data:', {
+                name: formData.get('name'),
+                address: formData.get('address'),
+                phone: formData.get('phone'),
+                paymentMethod: paymentMethod
+            });
+
+            // Store form data in localStorage for printing nota
+            localStorage.setItem('checkoutName', formData.get('name'));
+            localStorage.setItem('checkoutAddress', formData.get('address'));
+            localStorage.setItem('checkoutPhone', formData.get('phone'));
+            localStorage.setItem('checkoutPaymentMethod', paymentMethod);
+            localStorage.setItem('checkoutTotal', JSON.stringify(Object.values(itemsInCart).reduce((total, item) => total + item.price, 0)));
+
+            // Clear cart after successful checkout (you may want to handle this differently)
+            resetCart();
+
+            // Show success message using SweetAlert
+            Swal.fire({
+                icon: 'success',
+                title: 'Selamat Pembayaran Anda Telah Berhasil!',
+                text: 'Terima kasih telah berbelanja dengan kami.',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                // Redirect to index.html after successful payment
+                window.location.href = 'index.html';
+            });
+        });
+
+        // Load items from local storage on page load
+        let itemsInCart = JSON.parse(localStorage.getItem('cart')) || {};
+        renderCheckoutItems();
+    </script>
+</body>
+
+</html>
